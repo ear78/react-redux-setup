@@ -9,9 +9,12 @@ const reducer = (state = initialState, action) => {
 
         case actionTypes.STORE_RESULT:
         return {
-            //concat creates a copy of the array, best practice to use concat instead of push('some value')
+            //Transforming data can be handled in either the reducer or action creator, however be consistent whichever method you choose
+            //concat creates a copy of the array, best practice to use concat instead of push('some value').
             ...state,
             results: state.results.concat({id: new Date(), value: action.result})
+            // ...state,
+            // results: state.results.concat({id: new Date(), value: action.result * 2}) //transformed value example
         }
         case actionTypes.DELETE_RESULT:
             //create copy of array
