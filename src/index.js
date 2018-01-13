@@ -28,6 +28,6 @@ const logger = store => {
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger)));
 
-// Provider wraps the app to be able to inject throughout the app
+// Provider wraps the app to be able to inject throughout the app similar to a service in Angular
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
