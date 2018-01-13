@@ -31,11 +31,22 @@ export const subtract = (value) => {
     };
 };
 
-export const storeResult = (result) => {
+//async function
+export const saveResult = (result) => {
     return {
         type: STORE_RESULT,
         result: result
     };
+}
+
+export const storeResult = (result) => {
+    /*using the thunk Middleware like express allows async functionality like below. must return a function like dispatch and pass on result to saveResult callback
+    */
+    return dispatch => {
+        setTimeout(() => {
+            dispatch(saveResult(result))
+        }, 2000);
+    }
 };
 
 export const deleteResult = (resElId) => {
