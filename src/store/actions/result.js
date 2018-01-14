@@ -11,8 +11,11 @@ export const saveResult = (result) => {
 export const storeResult = (result) => {
     /*using the thunk Middleware like express allows async functionality like below. must return a function like dispatch and pass on result to saveResult callback
     */
-    return dispatch => {
+    return (dispatch, getState) => {
         setTimeout(() => {
+            //getState used to get previous state and information
+            // const oldCounter = getState().ctr.counter;
+            // console.log(oldCounter)
             dispatch(saveResult(result))
         }, 2000);
     }
